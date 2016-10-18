@@ -16,4 +16,4 @@
 - Mysql 5+
 
 ##搭建过程
->请参考教程""
+>请参考教程"[手刃SSM](http://www.jianshu.com/p/c4e8ff157bdc)"
