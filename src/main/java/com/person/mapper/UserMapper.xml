@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.person.dao.UserMapper">
+	<resultMap id="BaseResultMap" type="com.person.entity.User">
+		<id column="id" jdbcType="BIGINT" property="id" />
+		<result column="loginName" jdbcType="VARCHAR" property="loginname" />
+		<result column="password" jdbcType="VARCHAR" property="password" />
+		<result column="email" jdbcType="VARCHAR" property="email" />
+		<result column="type" jdbcType="SMALLINT" property="type" />
+		<result column="status" jdbcType="SMALLINT" property="status" />
+		<result column="crTime" jdbcType="TIMESTAMP" property="crtime" />
+		<result column="lastTime" jdbcType="TIMESTAMP" property="lasttime" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, loginName, password, email, type, status, crTime, lastTime
+	</sql>
+	<select id="selectByPrimaryKey" parameterType="java.lang.Long"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where id = #{id,jdbcType=BIGINT}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+		delete from user
+		where id = #{id,jdbcType=BIGINT}
+	</delete>
+	<insert id="insert" parameterType="com.person.entity.User">
+		<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		insert into user (loginName, password, email,
+		type, status, crTime,
+		lastTime)
+		values (#{loginname,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+		#{email,jdbcType=VARCHAR},
+		#{type,jdbcType=SMALLINT}, #{status,jdbcType=SMALLINT}, #{crtime,jdbcType=TIMESTAMP},
+		#{lasttime,jdbcType=TIMESTAMP})
+	</insert>
+	<insert id="insertSelective" parameterType="com.person.entity.User">
+		<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		insert into user
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="loginname != null">
+				loginName,
+			</if>
+			<if test="password != null">
+				password,
+			</if>
+			<if test="email != null">
+				email,
+			</if>
+			<if test="type != null">
+				type,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="crtime != null">
+				crTime,
+			</if>
+			<if test="lasttime != null">
+				lastTime,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="loginname != null">
+				#{loginname,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				#{password,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				#{email,jdbcType=VARCHAR},
+			</if>
+			<if test="type != null">
+				#{type,jdbcType=SMALLINT},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=SMALLINT},
+			</if>
+			<if test="crtime != null">
+				#{crtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="lasttime != null">
+				#{lasttime,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.person.entity.User">
+		update user
+		<set>
+			<if test="loginname != null">
+				loginName = #{loginname,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				password = #{password,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				email = #{email,jdbcType=VARCHAR},
+			</if>
+			<if test="type != null">
+				type = #{type,jdbcType=SMALLINT},
+			</if>
+			<if test="status != null">
+				status = #{status,jdbcType=SMALLINT},
+			</if>
+			<if test="crtime != null">
+				crTime = #{crtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="lasttime != null">
+				lastTime = #{lasttime,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.person.entity.User">
+		update user
+		set loginName = #{loginname,jdbcType=VARCHAR},
+		password = #{password,jdbcType=VARCHAR},
+		email = #{email,jdbcType=VARCHAR},
+		type = #{type,jdbcType=SMALLINT},
+		status = #{status,jdbcType=SMALLINT},
+		crTime = #{crtime,jdbcType=TIMESTAMP},
+		lastTime = #{lasttime,jdbcType=TIMESTAMP}
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+	<resultMap id="BaseResultMap" type="com.person.entity.User">
+		<id column="id" jdbcType="BIGINT" property="id" />
+		<result column="loginName" jdbcType="VARCHAR" property="loginname" />
+		<result column="password" jdbcType="VARCHAR" property="password" />
+		<result column="email" jdbcType="VARCHAR" property="email" />
+		<result column="type" jdbcType="SMALLINT" property="type" />
+		<result column="status" jdbcType="SMALLINT" property="status" />
+		<result column="crTime" jdbcType="TIMESTAMP" property="crtime" />
+		<result column="lastTime" jdbcType="TIMESTAMP" property="lasttime" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, loginName, password, email, type, status, crTime, lastTime
+	</sql>
+	<select id="selectByPrimaryKey" parameterType="java.lang.Long"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where id = #{id,jdbcType=BIGINT}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+		delete from user
+		where id = #{id,jdbcType=BIGINT}
+	</delete>
+	<insert id="insert" parameterType="com.person.entity.User">
+		insert into user (id, loginName, password,
+		email, type, status,
+		crTime, lastTime)
+		values (#{id,jdbcType=BIGINT}, #{loginname,jdbcType=VARCHAR},
+		#{password,jdbcType=VARCHAR},
+		#{email,jdbcType=VARCHAR}, #{type,jdbcType=SMALLINT}, #{status,jdbcType=SMALLINT},
+		#{crtime,jdbcType=TIMESTAMP}, #{lasttime,jdbcType=TIMESTAMP})
+	</insert>
+	<insert id="insertSelective" parameterType="com.person.entity.User">
+		insert into user
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="loginname != null">
+				loginName,
+			</if>
+			<if test="password != null">
+				password,
+			</if>
+			<if test="email != null">
+				email,
+			</if>
+			<if test="type != null">
+				type,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="crtime != null">
+				crTime,
+			</if>
+			<if test="lasttime != null">
+				lastTime,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=BIGINT},
+			</if>
+			<if test="loginname != null">
+				#{loginname,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				#{password,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				#{email,jdbcType=VARCHAR},
+			</if>
+			<if test="type != null">
+				#{type,jdbcType=SMALLINT},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=SMALLINT},
+			</if>
+			<if test="crtime != null">
+				#{crtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="lasttime != null">
+				#{lasttime,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.person.entity.User">
+		update user
+		<set>
+			<if test="loginname != null">
+				loginName = #{loginname,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				password = #{password,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				email = #{email,jdbcType=VARCHAR},
+			</if>
+			<if test="type != null">
+				type = #{type,jdbcType=SMALLINT},
+			</if>
+			<if test="status != null">
+				status = #{status,jdbcType=SMALLINT},
+			</if>
+			<if test="crtime != null">
+				crTime = #{crtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="lasttime != null">
+				lastTime = #{lasttime,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.person.entity.User">
+		update user
+		set loginName = #{loginname,jdbcType=VARCHAR},
+		password = #{password,jdbcType=VARCHAR},
+		email = #{email,jdbcType=VARCHAR},
+		type = #{type,jdbcType=SMALLINT},
+		status = #{status,jdbcType=SMALLINT},
+		crTime = #{crtime,jdbcType=TIMESTAMP},
+		lastTime = #{lasttime,jdbcType=TIMESTAMP}
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+	<resultMap id="BaseResultMap" type="com.person.entity.User">
+		<id column="id" jdbcType="BIGINT" property="id" />
+		<result column="loginName" jdbcType="VARCHAR" property="loginname" />
+		<result column="password" jdbcType="VARCHAR" property="password" />
+		<result column="email" jdbcType="VARCHAR" property="email" />
+		<result column="type" jdbcType="SMALLINT" property="type" />
+		<result column="status" jdbcType="SMALLINT" property="status" />
+		<result column="crTime" jdbcType="TIMESTAMP" property="crtime" />
+		<result column="lastTime" jdbcType="TIMESTAMP" property="lasttime" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, loginName, password, email, type, status, crTime, lastTime
+	</sql>
+	<select id="selectByPrimaryKey" parameterType="java.lang.Long"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where id = #{id,jdbcType=BIGINT}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+		delete from user
+		where id = #{id,jdbcType=BIGINT}
+	</delete>
+	<insert id="insert" parameterType="com.person.entity.User">
+		insert into user (id, loginName, password,
+		email, type, status,
+		crTime, lastTime)
+		values (#{id,jdbcType=BIGINT}, #{loginname,jdbcType=VARCHAR},
+		#{password,jdbcType=VARCHAR},
+		#{email,jdbcType=VARCHAR}, #{type,jdbcType=SMALLINT}, #{status,jdbcType=SMALLINT},
+		#{crtime,jdbcType=TIMESTAMP}, #{lasttime,jdbcType=TIMESTAMP})
+	</insert>
+	<insert id="insertSelective" parameterType="com.person.entity.User">
+		insert into user
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="loginname != null">
+				loginName,
+			</if>
+			<if test="password != null">
+				password,
+			</if>
+			<if test="email != null">
+				email,
+			</if>
+			<if test="type != null">
+				type,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="crtime != null">
+				crTime,
+			</if>
+			<if test="lasttime != null">
+				lastTime,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=BIGINT},
+			</if>
+			<if test="loginname != null">
+				#{loginname,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				#{password,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				#{email,jdbcType=VARCHAR},
+			</if>
+			<if test="type != null">
+				#{type,jdbcType=SMALLINT},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=SMALLINT},
+			</if>
+			<if test="crtime != null">
+				#{crtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="lasttime != null">
+				#{lasttime,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.person.entity.User">
+		update user
+		<set>
+			<if test="loginname != null">
+				loginName = #{loginname,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				password = #{password,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				email = #{email,jdbcType=VARCHAR},
+			</if>
+			<if test="type != null">
+				type = #{type,jdbcType=SMALLINT},
+			</if>
+			<if test="status != null">
+				status = #{status,jdbcType=SMALLINT},
+			</if>
+			<if test="crtime != null">
+				crTime = #{crtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="lasttime != null">
+				lastTime = #{lasttime,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.person.entity.User">
+		update user
+		set loginName = #{loginname,jdbcType=VARCHAR},
+		password = #{password,jdbcType=VARCHAR},
+		email = #{email,jdbcType=VARCHAR},
+		type = #{type,jdbcType=SMALLINT},
+		status = #{status,jdbcType=SMALLINT},
+		crTime = #{crtime,jdbcType=TIMESTAMP},
+		lastTime = #{lasttime,jdbcType=TIMESTAMP}
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+
+	<!-- 自定义SQL -->
+
+	<select id="loginUser" parameterType="Map" resultType="user">
+		select
+		id,loginName, password, email, type, status, crTime, lastTime 
+		from user
+		where loginName=#{loginName} and password=#{password}
+	</select>
+
+	<select id="existUserWithUserName" parameterType="String"
+		resultType="user">
+		select
+		id,loginName, password, email, type, status, crTime, lastTime 
+		from user
+		where loginName=#{loginName}
+	</select>
+	
+	<select id="existUserWithRoleId" parameterType="Integer" resultType="user">
+		select 
+		id,loginName, password, email, type, status, crTime, lastTime
+		from user
+		where roleId=#{roleId}
+	</select>
+
+</mapper>
