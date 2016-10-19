@@ -45,55 +45,38 @@
 			<property name="enableSubPackages" value="ture" />
 		</javaClientGenerator>
 
-		<!--对应数据库表名 -->
-		<!-- <table tableName="classlist" domainObjectName="_Class" -->
-		<!-- enableCountByExample="false" enableUpdateByExample="false" -->
-		<!-- enableDeleteByExample="false" enableSelectByExample="false" -->
-		<!-- selectByExampleQueryId="false"> -->
-		<!-- <generatedKey column="id" sqlStatement="Mysql" type="post" -->
-		<!-- identity="true" /> -->
-		<!-- </table> -->
-		<table tableName="permission" domainObjectName="Permission"
-			enableCountByExample="false" enableUpdateByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
-			selectByExampleQueryId="false">
-			<generatedKey column="id" sqlStatement="Mysql" type="post"
-				identity="true" />
-		</table>
-		<table tableName="role" domainObjectName="Role"
-			enableCountByExample="false" enableUpdateByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
-			selectByExampleQueryId="false">
-			<generatedKey column="id" sqlStatement="Mysql" type="post"
-				identity="true" />
-		</table>
-		<table tableName="role_permission" domainObjectName="RolePermission"
-			enableCountByExample="false" enableUpdateByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
-			selectByExampleQueryId="false">
-			<generatedKey column="id" sqlStatement="Mysql" type="post"
-				identity="true" />
-		</table>
-		<table tableName="sys_log" domainObjectName="SysLog"
-			enableCountByExample="false" enableUpdateByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
-			selectByExampleQueryId="false">
-			<generatedKey column="id" sqlStatement="Mysql" type="post"
-				identity="true" />
-		</table>
 		<table tableName="user" domainObjectName="User"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false">
 			<generatedKey column="id" sqlStatement="Mysql" type="post"
 				identity="true" />
-		</table>
-		<table tableName="user_role" domainObjectName="UserRole"
-			enableCountByExample="false" enableUpdateByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
-			selectByExampleQueryId="false">
-			<generatedKey column="id" sqlStatement="Mysql" type="post"
-				identity="true" />
+			<!--对应数据库表名 -->
+			<!-- <table tableName="classlist" domainObjectName="_Class" -->
+			<!-- enableCountByExample="false" enableUpdateByExample="false" -->
+			<!-- enableDeleteByExample="false" enableSelectByExample="false" -->
+			<!-- selectByExampleQueryId="false"> -->
+			<!-- <generatedKey column="id" sqlStatement="Mysql" type="post" -->
+			<!-- identity="true" /> -->
+			<!-- </table> -->
+			<!-- <table tableName="permission" domainObjectName="Permission" enableCountByExample="false" 
+				enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+				selectByExampleQueryId="false"> <generatedKey column="id" sqlStatement="Mysql" 
+				type="post" identity="true" /> </table> <table tableName="role" domainObjectName="Role" 
+				enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" 
+				enableSelectByExample="false" selectByExampleQueryId="false"> <generatedKey 
+				column="id" sqlStatement="Mysql" type="post" identity="true" /> </table> 
+				<table tableName="role_permission" domainObjectName="RolePermission" enableCountByExample="false" 
+				enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+				selectByExampleQueryId="false"> <generatedKey column="id" sqlStatement="Mysql" 
+				type="post" identity="true" /> </table> <table tableName="sys_log" domainObjectName="SysLog" 
+				enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" 
+				enableSelectByExample="false" selectByExampleQueryId="false"> <generatedKey 
+				column="id" sqlStatement="Mysql" type="post" identity="true" /> </table> 
+				</table> <table tableName="user_role" domainObjectName="UserRole" enableCountByExample="false" 
+				enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+				selectByExampleQueryId="false"> <generatedKey column="id" sqlStatement="Mysql" 
+				type="post" identity="true" /> -->
 		</table>
 	</context>
 </generatorConfiguration>

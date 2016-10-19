@@ -23,7 +23,7 @@
 
                             <div class="inputOuter" id="uArea">
 
-                                <input type="text" id="u" name="loginId" class="inputstyle"/>
+                                <input type="text" id="loginname" name="loginname" class="inputstyle"/>
                             </div>
                         </div>
                         <div class="pwdArea" id="pwdArea">
@@ -31,7 +31,7 @@
 
                             <div class="inputOuter" id="pArea">
 
-                                <input type="password" id="p" name="pwd" class="inputstyle"/>
+                                <input type="password" id="password" name="password" class="inputstyle"/>
                             </div>
                         </div>
 
